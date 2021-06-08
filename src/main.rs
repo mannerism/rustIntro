@@ -17,6 +17,6 @@ fn main() {
   // print::run();
   // vars::run();
   // strings::run();
-  enums::run();
+  cli::run();
 }
 
