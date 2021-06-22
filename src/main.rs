@@ -11,7 +11,8 @@
 // mod pointers_ref;
 // mod structs;
 // mod enums;
-mod cli;
+// mod cli;
+mod heap_and_stack;
 
 /// https://www.youtube.com/watch?v=zF34dRivLOw
 
@@ -19,6 +20,7 @@ fn main() {
   // print::run();
   // vars::run();
   // strings::run();
-  cli::run();
+  // cli::run();
+  heap_and_stack::run();
 }
 
