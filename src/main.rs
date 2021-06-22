@@ -12,7 +12,8 @@
 // mod structs;
 // mod enums;
 // mod cli;
-mod heap_and_stack;
+// mod heap_and_stack;
+mod string_slices;
 
 /// https://www.youtube.com/watch?v=zF34dRivLOw
 
@@ -21,6 +22,7 @@ fn main() {
   // vars::run();
   // strings::run();
   // cli::run();
-  heap_and_stack::example();
+  // heap_and_stack::example();
+  string_slices::run();
 }
 
