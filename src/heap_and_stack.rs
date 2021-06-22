@@ -1,4 +1,4 @@
-#[allow(unused_variables)] // This is so I don't get warnings
+#[allow(warnings)] // This is so I don't get warnings
 pub fn run () {
   // STACK
   // - Fast memory creation and retrieval... Speed, speed, speed!
@@ -35,4 +35,45 @@ pub fn run () {
   let heap_i8_2 = heap_i8;
   // println!("{}", heap_i8); // Error due to ownership transfer
   println!("{}", heap_i8_2);
+}
+
+#[allow(warnings)]
+pub fn example() {
+  let stack_f64: f64 = 1.;
+  let mut heap_f64: Box<f64> = Box::new(2.);
+  stack_procedure(stack_f64); // stack_f64 will be copied when passed as an argument
+  println!("In main stack {}", stack_f64);
+
+  // heap_procedure_transfer_ownership(heap_f64);
+  // println!("In main heal {}", heap_f64); // Error - Memory ownership has transferred from heap_f64 to param argument in `heap_procedure_transfer_ownership`
+
+  // Ugly solution
+  // heap_f64 = heap_procedure_1(heap_f64, Box::new(true)).0;  
+
+  // Ideal solution
+  heap_procedure_2(&heap_f64); // Ownership stays with heap_f64
+  println!("In main heal {}", heap_f64);
+
+}
+
+fn stack_procedure(mut param: f64) { // Mutating won't change what's in example() 
+  param += 9.;
+  println!("In stack_procedure with param {}", param);
+}
+
+#[allow(warnings)]
+fn heap_procedure_transfer_ownership(param: Box<f64>) {
+  println!("In heap_procedure with param {}", param);
+}
+
+// Ugly solution - this is a bad solution to a simple problem because you would have to return every single argument you have passed in inside `heap_procedure_1` function
+#[allow(warnings)]
+fn heap_procedure_1(param: Box<f64>, param_b: Box<bool>) -> (Box<f64>, Box<bool>) {
+  println!("In heap_procedure_1 with param {}", param);
+  (param, param_b)
+}
+
+// Ideal solution
+fn heap_procedure_2(param: &Box<f64>) {
+  println!("In heap_procedure with param {}", param);
 }

@@ -21,6 +21,6 @@ fn main() {
   // vars::run();
   // strings::run();
   // cli::run();
-  heap_and_stack::run();
+  heap_and_stack::example();
 }
 
