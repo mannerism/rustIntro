@@ -22,6 +22,7 @@ fn example2() {
   println!("{}, {}, {:?}", var_a, var_b, mass_data);
 }
 
+#[allow(warnings)]
 fn heavy_calc(_param: &Vec<&String>) -> i64 {
   //Some heavy duty calcs performed here that utilize available cores of my computer
   14

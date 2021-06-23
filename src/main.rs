@@ -14,7 +14,8 @@
 // mod cli;
 // mod heap_and_stack;
 // mod string_slices;
-mod references;
+// mod references;
+mod struct_ownership;
 
 /// https://www.youtube.com/watch?v=zF34dRivLOw
 
@@ -25,6 +26,7 @@ fn main() {
   // cli::run();
   // heap_and_stack::example();
   // string_slices::run();
-  references::run();
+  // references::run();
+  struct_ownership::run();
 }
 
